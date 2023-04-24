@@ -4,7 +4,7 @@
             [portfolio.ui.components.canvas :as canvas]))
 
 (defn prepare-canvas [_data el {:grid/keys [offset size group-size] :as opt}]
-  (let [body-style (.-style (canvas/get-iframe el))
+  (let [^js body-style (.-style (canvas/get-iframe el))
         zoom (or (:zoom/level opt) 1)]
     (if (and (number? size) (not= 0 size))
       (let [real-size (* zoom size)

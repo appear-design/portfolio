@@ -12,7 +12,7 @@
       (set! (.. body -style -height) "100%"))))
 
 (defn zoom [el opt]
-  (let [body (canvas/get-iframe-body el)
+  (let [^js body (canvas/get-iframe-body el)
         lvl (:zoom/level opt)]
     (cond
       lvl
