@@ -1,6 +1,8 @@
 (ns portfolio.fulcro
   (:require [portfolio.adapter :as adapter]
-            [dumdom.component :as component])
+            [com.fulcrologic.rad.application]
+            [com.fulcrologic.fulcro.react.version18]
+            [com.fulcrologic.fulcro.application])
   (:require-macros [portfolio.fulcro]
                    [com.fulcrologic.fulcro.components]))
 
@@ -16,6 +18,7 @@
   {`adapter/render-component
    (fn [{:keys [component]} ^js el]
      (assert (some? el) "Asked to render component into null container.")
+     (js/console.log "portfolio mount")
      (when-let [f (some-> el .-unmount)]
        (f))
      (let [root (mount-or-get-root component el)]
